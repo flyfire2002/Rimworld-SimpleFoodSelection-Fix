@@ -134,7 +134,7 @@ namespace SimpleFoodSelection.Searching
 
             // Potentially expensive path calculation last
             if (!item.IsInInventory
-                && !parameters.Getter.CanReach(new LocalTargetInfo(item.Position), Verse.AI.PathEndMode.OnCell, Danger.Unspecified, parameters.Desperate))
+                && !parameters.Getter.CanReach(new LocalTargetInfo(item.Position), Verse.AI.PathEndMode.Touch, Danger.Unspecified, parameters.Desperate))
             {
                 traceOutput?.AppendLine($"Rejecting {item.Thing}: {parameters.Getter} cannot reach");
                 return false;
