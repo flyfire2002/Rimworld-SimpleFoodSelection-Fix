@@ -19,7 +19,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "About", "About", "{2735BBBB
 	ProjectSection(SolutionItems) = preProject
 		..\Mod\SimpleFoodSelection\About\About.xml = ..\Mod\SimpleFoodSelection\About\About.xml
 		..\Mod\SimpleFoodSelection\About\Preview.png = ..\Mod\SimpleFoodSelection\About\Preview.png
-		..\Mod\SimpleFoodSelection\About\PublishedFileId.txt = ..\Mod\SimpleFoodSelection\About\PublishedFileId.txt
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "XML Patches", "XML Patches", "{7AE89164-88B5-4535-8284-1ABF23F3B66E}"
