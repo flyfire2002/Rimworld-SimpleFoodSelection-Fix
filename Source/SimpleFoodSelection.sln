@@ -22,6 +22,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "About", "About", "{2735BBBB
 		..\Mod\SimpleFoodSelection\About\PublishedFileId.txt = ..\Mod\SimpleFoodSelection\About\PublishedFileId.txt
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "XML Patches", "XML Patches", "{7AE89164-88B5-4535-8284-1ABF23F3B66E}"
+	ProjectSection(SolutionItems) = preProject
+		..\Patches\SeedsPleaseLite.xml = ..\Patches\SeedsPleaseLite.xml
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

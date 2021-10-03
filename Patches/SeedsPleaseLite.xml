@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<Patch>
+  <Operation Class="PatchOperationFindMod">
+    <mods>
+      <li>SeedsPlease: Lite</li>
+    </mods>
+    <match Class="PatchOperationReplace">
+      <xpath>/Defs/ThingDef[@Name="SeedBase"]/ingestible/preferability</xpath>
+      <value>
+        <preferability>DesperateOnly</preferability>
+      </value>
+    </match>
+  </Operation>
+</Patch>
