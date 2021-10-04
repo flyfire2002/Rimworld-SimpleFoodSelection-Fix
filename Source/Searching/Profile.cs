@@ -61,10 +61,16 @@ namespace SimpleFoodSelection.Searching
                 return Pet;
 
             if (pawn.IsAscetic())
-                return Ascetic;
+                if (SimpleFoodSelectionSettings.asceticPrefRawTastyOverMealSurvival)
+                    return Ascetic;
+                else
+                    return AsceticPrefSurvival;
 
             if (!pawn.AnimalOrWildMan())
-                return Human;
+                if (SimpleFoodSelectionSettings.humanPrefRawTastyOverMealSurvival)
+                    return Human;
+                else
+                    return HumanPrefSurvival;
 
             // Others can use the vanilla algorithm
             return null;
@@ -79,6 +85,33 @@ namespace SimpleFoodSelection.Searching
                 new[] { FoodCategory.MealSimple },
                 new[] { FoodCategory.RawTasty },
                 new[] { FoodCategory.MealSurvival },
+                new[] { FoodCategory.MealAwful },
+            },
+            bad: new[]
+            {
+                new[] { FoodCategory.FertEggs },
+                new[] { FoodCategory.RawBad, FoodCategory.AnimalProduct },
+                new[] { FoodCategory.Luxury },
+            },
+            desperate: new[]
+            {
+                new[] { FoodCategory.Plant, FoodCategory.PlantMatter },
+                new[] { FoodCategory.RawInsect },
+                new[] { FoodCategory.Kibble },
+                new[] { FoodCategory.Corpse },
+                new[] { FoodCategory.InsectCorpse },
+                new[] { FoodCategory.HumanlikeCorpse },
+            });
+
+        public static readonly Profile HumanPrefSurvival = new Profile(
+            name: "HumanPreferSurvivalMeal",
+            good: new[]
+            {
+                new[] { FoodCategory.MealLavish },
+                new[] { FoodCategory.MealFine },
+                new[] { FoodCategory.MealSimple },
+                new[] { FoodCategory.MealSurvival }, // Here
+                new[] { FoodCategory.RawTasty },     // Here
                 new[] { FoodCategory.MealAwful },
             },
             bad: new[]
@@ -134,6 +167,32 @@ namespace SimpleFoodSelection.Searching
                 new[] { FoodCategory.RawBad, FoodCategory.AnimalProduct },
                 new[] { FoodCategory.RawTasty },
                 new[] { FoodCategory.MealSurvival },
+            },
+            bad: new[]
+            {
+                new[] { FoodCategory.Plant, FoodCategory.PlantMatter },
+                new[] { FoodCategory.MealFine },
+                new[] { FoodCategory.MealLavish },
+                new[] { FoodCategory.FertEggs },
+            },
+            desperate: new[]
+            {
+                new[] { FoodCategory.RawInsect },
+                new[] { FoodCategory.Kibble },
+                new[] { FoodCategory.Corpse },
+                new[] { FoodCategory.InsectCorpse },
+                new[] { FoodCategory.HumanlikeCorpse },
+            });
+
+        public static readonly Profile AsceticPrefSurvival = new Profile(
+            name: "AsceticPreferSurvivalMeal",
+            good: new[]
+            {
+                new[] { FoodCategory.MealAwful },
+                new[] { FoodCategory.MealSimple },
+                new[] { FoodCategory.RawBad, FoodCategory.AnimalProduct },
+                new[] { FoodCategory.MealSurvival },          // Here
+                new[] { FoodCategory.RawTasty },              // Here
             },
             bad: new[]
             {

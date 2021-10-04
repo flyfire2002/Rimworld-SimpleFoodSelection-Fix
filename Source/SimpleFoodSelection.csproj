@@ -59,6 +59,10 @@
       <HintPath>..\..\..\RimWorldWin64_Data\Managed\UnityEngine.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath>..\..\..\RimWorldWin64_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Extensions.cs" />
@@ -74,6 +78,7 @@
     <Compile Include="Mod.cs" />
     <Compile Include="Searching\Profile.cs" />
     <Compile Include="Searching\ProfileFoodTier.cs" />
+    <Compile Include="SFSSetting.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\" />
