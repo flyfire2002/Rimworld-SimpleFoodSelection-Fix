@@ -127,10 +127,8 @@ namespace SimpleFoodSelection.Searching
                 {
                     if (FoodUtility.IsHumanlikeCorpseOrHumanlikeMeat(thing, def))
                         return FoodCategory.HumanlikeCorpse;
-
-                    if (def.FirstThingCategory == ThingCategoryDefOf.CorpsesInsect)
+                    if (FoodUtility.IsInsectCorpseOrInsectMeatIngredient(thing))
                         return FoodCategory.InsectCorpse;
-
                     if (def.ingestible?.sourceDef?.race?.IsMechanoid ?? false)
                         return FoodCategory.Ignore;
 
@@ -141,10 +139,8 @@ namespace SimpleFoodSelection.Searching
                 {
                     if (FoodUtility.IsHumanlikeCorpseOrHumanlikeMeat(thing, def))
                         return FoodCategory.RawHuman;
-
-                    if (def == ThingDef.Named("Meat_Megaspider") || def.ingestible.tasteThought == ThoughtDefOf.AteInsectMeatAsIngredient)
+                    if (FoodUtility.IsInsectCorpseOrInsectMeatIngredient(thing))
                         return FoodCategory.RawInsect;
-
                     return FoodCategory.RawBad;
                 }
 

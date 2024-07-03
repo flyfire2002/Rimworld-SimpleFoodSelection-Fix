@@ -34,7 +34,7 @@ namespace SimpleFoodSelection
             !pawn.health.InPainShock && pawn.Downed;
 
         public static bool IsCannibal(this Pawn pawn) =>
-            pawn.story?.traits?.HasTrait(TraitDefOf.Cannibal) ?? false;
+            pawn.story?.traits?.HasTrait(TraitDef.Named("Cannibal")) ?? false;
 
         public static bool IsAscetic(this Pawn pawn) =>
             pawn.story?.traits?.HasTrait(TraitDefOf.Ascetic) ?? false;

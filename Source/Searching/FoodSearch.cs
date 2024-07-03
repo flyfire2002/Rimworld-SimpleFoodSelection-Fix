@@ -12,13 +12,6 @@ namespace SimpleFoodSelection.Searching
     {
         const string TraceDelimiter = "|";
 
-        private static readonly ThoughtDef[] DesperateOnlyThoughts = new[]
-        {
-            ThoughtDefOf.AteHumanlikeMeatAsIngredient,
-            ThoughtDefOf.AteHumanlikeMeatDirect,
-            ThoughtDefOf.AteRottenFood,
-        };
-
         public FoodSearch(FoodSearchParameters parameters)
         {
             this.parameters = parameters;
@@ -321,10 +314,15 @@ namespace SimpleFoodSelection.Searching
                 return true;
 
 
+            if (FoodUtility.IsHumanlikeCorpseOrHumanlikeMeatOrIngredient(item.Thing) && !parameters.Eater.IsCannibal())
+            {
+                traceOutput?.AppendLine($"Rejecting {item.Thing}: is human corpse/meat/ingredient");
+                return false;
+            }
             var thoughtsFromConsuming = FoodUtility.ThoughtsFromIngesting(parameters.Eater, item.Thing, item.Def);
             foreach (var thoughtFC in thoughtsFromConsuming)
             {
-                if (DesperateOnlyThoughts.Contains(thoughtFC.thought))
+                if (thoughtFC.thought == ThoughtDefOf.AteRottenFood)
                 {
                     traceOutput?.AppendLine($"Rejecting {item.Thing}: would cause desperate thought {thoughtFC}");
                     return false;
