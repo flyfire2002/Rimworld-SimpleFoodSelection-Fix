@@ -22,6 +22,14 @@ namespace SimpleFoodSelection.Patches
             Pawn getter, Pawn eater, bool desperate, ref Thing foodSource, ref ThingDef foodDef, bool canRefillDispenser, bool canUseInventory,
             bool allowForbidden, bool allowCorpse, bool allowSociallyImproper, bool allowHarvest, bool forceScanWholeMap)
         {
+            if (eater.IsPet())
+            {
+#if DEBUG
+                Mod.LogMessage($"Found Pet {eater}. canUseInventory={canUseInventory}, changed to false.");
+#endif
+                canUseInventory = false;
+            }
+
 #if DEBUG
             var traceOutput = new StringBuilder();
             traceOutput.AppendLine($"Intercepting FoodUtility.TryFindBestFoodSourceFor getter={getter}|eater={eater}|desperate={desperate}|"

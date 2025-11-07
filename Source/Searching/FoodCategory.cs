@@ -52,8 +52,8 @@ namespace SimpleFoodSelection.Searching
             if (def == null)
                 throw new ArgumentNullException(nameof(def));
 
-            // List all foods with a race as huntable
-            if (def.race != null)
+            // List all foods with a race that is not a corpse as huntable
+            if (def.race != null && !def.IsCorpse)
                 return FoodCategory.Hunt;
 
             if (def.ingestible != null)

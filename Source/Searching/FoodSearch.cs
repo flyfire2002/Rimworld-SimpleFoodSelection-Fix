@@ -54,10 +54,9 @@ namespace SimpleFoodSelection.Searching
                     {   // foodSearchGroup e.g. Inventory/HomeArea
                         if (!foodSearchGroup.Any())
                             continue;
-
                         // TODO: optimize sorting/search loops for group lookup?
                         foreach (var categoryGroup in foodTier)
-                        {   // categoryGroup e.g. RawMeat||AnimalCorpse
+                        {   // categoryGroup e.g. RawMeat||AnimalCorpse'
                             var categoryFoods = foodSearchGroup.Where(x => categoryGroup.Contains(x.FoodCategory));
                             foreach (var foodSearchItem in categoryFoods)
                             {   // foodSearchItem e.g. SurvivalMealPack24406

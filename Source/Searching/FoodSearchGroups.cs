@@ -77,7 +77,9 @@ namespace SimpleFoodSelection.Searching
         IEnumerable<FoodSearchItem> GetInventoryItems()
         {
             var inventoryThings = getter?.inventory?.innerContainer?.InnerListForReading;
-            if (inventoryThings == null || !inventoryThings.Any())
+            // Check isAnimal to prevent animals trying to eat from inventory.
+            var isAnimal = getter == null || getter.IsAnimal();
+            if (inventoryThings == null || !inventoryThings.Any() || isAnimal)
                 yield break;
 
             foreach (var food in GetFoods(inventoryThings, IntVec3.Invalid))
